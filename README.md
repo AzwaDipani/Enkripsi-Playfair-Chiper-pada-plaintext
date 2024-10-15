@@ -1,5 +1,5 @@
 # Enkripsi-Playfair-Chiper-pada-plaintext
-
+```
 def create_playfair_matrix(key):
     key = "".join(dict.fromkeys(key.replace('J', 'I')))
     alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
@@ -65,4 +65,4 @@ def playfair_decrypt(ciphertext, key):
         else:
             plaintext.append(matrix[r1][c2])
             plaintext.append(matrix[r2][c1])
-    return "".join(plaintext)
+    return "".join(plaintext)```

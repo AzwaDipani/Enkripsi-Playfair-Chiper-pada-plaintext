@@ -65,4 +65,38 @@ def playfair_decrypt(ciphertext, key):
         else:
             plaintext.append(matrix[r1][c2])
             plaintext.append(matrix[r2][c1])
-    return "".join(plaintext)```
+    return "".join(plaintext)
+```
+
+#  File Pengujian run_playfair.py
+
+Untuk menjalankan proses enkripsi dan dekripsi pada beberapa teks, kita menambahkan file pengujian seperti di bawah ini:
+```
+from playfair_cipher import playfair_encrypt, playfair_decrypt
+
+# Define key and plaintexts
+key = "TEKNIK INFORMATIKA"
+plaintexts = [
+    "GOOD BROOM SWEEP CLEAN",
+    "REDWOOD NATIONAL STATE PARK",
+    "JUNK FOOD AND HEALTH PROBLEMS"
+]
+
+# Encrypt and decrypt each plaintext
+for text in plaintexts:
+    encrypted = playfair_encrypt(text, key)
+    decrypted = playfair_decrypt(encrypted, key)
+    print(f"Plaintext: {text}")
+    print(f"Encrypted: {encrypted}")
+    print(f"Decrypted: {decrypted}")
+    print("\n")
+```
+
+# Hasil RUN
+![Screenshot (432)](https://github.com/user-attachments/assets/0e4656d6-6bf4-4e65-b671-a460dd4330a8)
+
+
+Penjelasan Kesimpulan:
+- Matriks Playfair dibuat dari kunci untuk enkripsi dan dekripsi.
+- Enkripsi dilakukan dengan menerapkan aturan Playfair pada pasangan huruf teks.
+- Dekripsi dilakukan dengan menerapkan kebalikan dari aturan tersebut untuk mendapatkan teks asli kembali.

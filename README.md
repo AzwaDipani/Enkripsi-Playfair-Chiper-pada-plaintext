@@ -1,5 +1,6 @@
 # Enkripsi-Playfair-Chiper-pada-plaintext
 ```
+
 def create_playfair_matrix(key):
     key = "".join(dict.fromkeys(key.replace('J', 'I')))
     alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
@@ -15,15 +16,17 @@ def preprocess_text(plaintext):
     i = 0
     while i < len(plaintext):
         processed_text.append(plaintext[i])
-        if i + 1 < len(plaintext) and plaintext[i] == plaintext[i + 1]:
-            processed_text.append('X')
-        elif i + 1 < len(plaintext):
+        if i + 1 < len(plaintext):
             processed_text.append(plaintext[i + 1])
             i += 1
         i += 1
+    
+    # Jika jumlah huruf ganjil, tambahkan huruf padding 'Z' di akhir
     if len(processed_text) % 2 != 0:
-        processed_text.append('X')
+        processed_text.append('Z')  # Kamu bisa memilih huruf lain selain Z jika diperlukan
+    
     return "".join(processed_text)
+
 
 def find_position(matrix, letter):
     for row in range(5):
@@ -66,6 +69,7 @@ def playfair_decrypt(ciphertext, key):
             plaintext.append(matrix[r1][c2])
             plaintext.append(matrix[r2][c1])
     return "".join(plaintext)
+
 ```
 
 #  File Pengujian run_playfair.py
@@ -90,10 +94,12 @@ for text in plaintexts:
     print(f"Encrypted: {encrypted}")
     print(f"Decrypted: {decrypted}")
     print("\n")
+
 ```
 
 # Hasil RUN
-![Screenshot (432)](https://github.com/user-attachments/assets/0e4656d6-6bf4-4e65-b671-a460dd4330a8)
+![Screenshot (433)](https://github.com/user-attachments/assets/68a87175-a7e8-4c67-bf12-a7094fa3a89c)
+
 
 
 Penjelasan Kesimpulan:
